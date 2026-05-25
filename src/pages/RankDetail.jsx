@@ -19,7 +19,7 @@ import RichText from '../components/RichText';
 import './Ranks.css';
 
 export default function RankDetail({ rankId }) {
-  const { navigate, initiateCheckout } = useApp();
+  const { navigate } = useApp();
   const rank = RANKS.find(r => r.id === rankId);
   const DISCORD_INVITE_LINK = "https://discord.gg/PvnHdGkd9T";
 
