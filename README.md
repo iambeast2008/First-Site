@@ -65,3 +65,4 @@ npm run build
 - Design tokens live in `src/index.css` under `:root`
 - Swap simulated auth for a real backend (Firebase, Supabase, etc.) in `AppContext.jsx`
 - Replace simulated checkout with real Razorpay SDK in `executeCheckout()` in `AppContext.jsx`
+# First-Site
