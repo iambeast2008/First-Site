@@ -1,0 +1,77 @@
+footer {
+  border-top: 1px solid var(--border-color);
+  background: rgba(11, 11, 15, 0.4);
+  padding: 40px 0;
+  margin-top: auto;
+  z-index: 5;
+  position: relative;
+}
+
+.footer-inner-layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.footer-brand-info { display: flex; flex-direction: column; gap: 12px; }
+
+.logo-area-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.footer-logo-icon {
+  width: 24px; height: 24px;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo-text {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 2px;
+  background: linear-gradient(to right, #fff, var(--text-muted));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-legal-copy { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.footer-link {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.footer-link:hover { color: var(--accent-cyan); }
+
+@media (max-width: 768px) {
+  .footer-inner-layout { padding: 0 20px; }
+}

@@ -1,0 +1,196 @@
+.rank-matrix {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.rank-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.rank-card:hover { transform: translateY(-6px); border-color: var(--border-hover); }
+
+.rank-badge {
+  position: absolute;
+  top: -12px; left: 32px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Per-rank badge colors */
+.rank-id-divine .rank-badge  { background: var(--accent-cyan); color: #000; }
+.rank-id-immortal .rank-badge { background: #7b2cbf; color: #fff; }
+.rank-id-dominator .rank-badge { background: #ff0054; color: #fff; }
+
+/* Per-rank card border accents on hover */
+.rank-id-divine:hover   { border-color: var(--accent-cyan); box-shadow: 0 16px 40px rgba(0,245,212,0.08); }
+.rank-id-immortal:hover { border-color: #7b2cbf; box-shadow: 0 16px 40px rgba(123,44,191,0.08); }
+.rank-id-dominator:hover { border-color: #ff0054; box-shadow: 0 16px 40px rgba(255,0,84,0.08); }
+
+.rank-name {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  color: #fff;
+  margin-bottom: 20px;
+  margin-top: 16px;
+}
+
+.rank-id-divine .rank-name  { color: #00f5d4; }
+.rank-id-immortal .rank-name { color: #9d4edd; }
+.rank-id-dominator .rank-name { color: #ff0054; }
+
+.rank-price-tier {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.price-currency { font-size: 20px; color: var(--text-muted); font-weight: 600; }
+.price-amt { font-family: var(--font-display); font-size: 56px; font-weight: 900; color: #fff; line-height: 1; }
+.price-term { font-size: 14px; color: var(--text-dim); }
+
+.rank-perks-summary {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  margin-bottom: 32px;
+}
+
+.rank-perks-summary li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.rank-perks-summary li i { color: var(--accent-cyan); font-size: 12px; flex-shrink: 0; }
+.rank-id-immortal .rank-perks-summary li i { color: #9d4edd; }
+.rank-id-dominator .rank-perks-summary li i { color: #ff0054; }
+
+.btn-rank-action {
+  padding: 14px 24px;
+  border-radius: 6px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  width: 100%;
+}
+
+.rank-id-divine .btn-rank-action:hover   { background: var(--accent-cyan); color: #000; border-color: var(--accent-cyan); box-shadow: 0 10px 24px rgba(0,245,212,0.2); }
+.rank-id-immortal .btn-rank-action:hover { background: #7b2cbf; color: #fff; border-color: #7b2cbf; box-shadow: 0 10px 24px rgba(123,44,191,0.2); }
+.rank-id-dominator .btn-rank-action:hover { background: #ff0054; color: #fff; border-color: #ff0054; box-shadow: 0 10px 24px rgba(255,0,84,0.2); }
+
+/* Rank detail pages */
+.detail-hero {
+  padding: 80px 0 48px 0;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 48px;
+}
+
+.back-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 14px; font-weight: 600;
+  margin-bottom: 32px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+  background: none;
+  border: none;
+}
+
+.back-nav-link:hover { color: var(--accent-cyan); }
+
+.perks-expanded-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 48px;
+}
+
+.perks-list-full { display: flex; flex-direction: column; gap: 24px; }
+
+.perk-extended-node {
+  background: rgba(255,255,255,0.01);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+}
+
+.perk-extended-node i { font-size: 20px; color: var(--accent-cyan); margin-top: 3px; flex-shrink: 0; }
+
+.perk-extended-info h5 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.perk-extended-info p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+.perk-extended-info code {
+  background: rgba(0,245,212,0.1);
+  color: var(--accent-cyan);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+.purchase-sticky-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 40px;
+  position: sticky;
+  top: 120px;
+  height: fit-content;
+}
+
+.purchase-sticky-panel h4 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.purchase-sticky-panel p { color: var(--text-muted); font-size: 14px; margin-bottom: 24px; }
+.purchase-sticky-panel .price-big { font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 24px; }
+
+@media (max-width: 1100px) {
+  .rank-matrix { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+  .perks-expanded-grid { grid-template-columns: 1fr; gap: 40px; }
+  .purchase-sticky-panel { position: relative; top: 0; }
+}

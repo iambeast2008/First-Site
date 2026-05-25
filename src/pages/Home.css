@@ -1,0 +1,419 @@
+/* ── LUXURY CYBER THEME CONFIGURATIONS ── */
+.luxury-home-canvas {
+  --neon-cyan: #00f2fe;
+  --neon-purple: #4facfe;
+  --terminal-bg: rgba(10, 10, 14, 0.85);
+  --card-dark: rgba(20, 20, 27, 0.6);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+}
+
+/* ── HERO GRID LAYOUT ── */
+.prime-hero-deck {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.hero-grid-matrix {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 968px) {
+  .hero-grid-matrix {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+}
+
+/* ── LEFT HERO CELL ── */
+.live-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 242, 254, 0.06);
+  border: 1px solid rgba(0, 242, 254, 0.15);
+  padding: 6px 14px;
+  border-radius: 30px;
+  margin-bottom: 1.5rem;
+}
+
+.pulse-indicator {
+  width: 8px;
+  height: 8px;
+  background: var(--neon-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--neon-cyan);
+  animation: statusPulse 2s infinite ease-in-out;
+}
+
+.pill-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+.cyber-brand-title {
+  font-family: var(--font-display), sans-serif;
+  font-size: 5.5rem;
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 0.9;
+  margin: 0 0 1.5rem 0;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.gradient-glow-text {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cyber-brand-tagline {
+  color: #94a3b8;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 540px;
+  margin: 0 0 2.5rem 0;
+}
+
+@media (max-width: 968px) {
+  .cyber-brand-tagline { margin: 0 auto 2.5rem auto; }
+}
+
+/* ── PREMIUM INTERACTIVE BUTTON MATRIX ── */
+.hero-action-dock {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 968px) {
+  .hero-action-dock { justify-content: center; }
+}
+
+.premium-cta-btn-primary {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-purple) 100%);
+  border: none;
+  color: #000;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 1px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+
+.premium-cta-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 242, 254, 0.3);
+}
+
+.premium-cta-btn-secondary {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.premium-cta-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ── RIGHT CYBER TERMINAL COMPONENT ── */
+.cyber-terminal-shell {
+  background: var(--terminal-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 24px 60px -15px rgba(0,0,0,0.7);
+  overflow: hidden;
+}
+
+.terminal-header-bar {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.window-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.window-dots span {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+}
+
+.window-title {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #475569;
+  margin-left: auto;
+}
+
+.terminal-data-body {
+  padding: 2rem;
+}
+
+.data-metric-row {
+  margin-bottom: 2rem;
+}
+
+.metric-label {
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #475569;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.terminal-ip-box {
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 14px 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.terminal-ip-box:hover {
+  border-color: rgba(0, 242, 254, 0.3);
+  background: rgba(0, 242, 254, 0.02);
+}
+
+.ip-string-highlight {
+  font-family: monospace;
+  font-size: 1.2rem;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.text-green { color: #00ffaa; }
+
+.terminal-grid-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-terminal-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.card-mini-label {
+  display: block;
+  font-size: 0.65rem;
+  color: #475569;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.card-big-value {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.3rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.terminal-footer-hint {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #475569;
+  margin: 0;
+  text-align: center;
+}
+
+/* ── ECOSYSTEM CARD MODULES ── */
+.ecosystem-section-wrap {
+  padding: 6rem 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.modern-section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.micro-accent-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--neon-cyan);
+}
+
+.macro-display-title {
+  font-family: var(--font-display), sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.header-bar-line {
+  width: 60px; height: 3px;
+  background: var(--neon-cyan);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.luxury-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.luxury-feature-card {
+  position: relative;
+  background: var(--card-dark);
+  border: 1px solid var(--border-subtle);
+  padding: 2.5rem;
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.luxury-feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 242, 254, 0.25);
+}
+
+.luxury-icon-container {
+  width: 56px; height: 56px;
+  background: rgba(0, 242, 254, 0.04);
+  border: 1px solid rgba(0, 242, 254, 0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--neon-cyan);
+}
+
+.luxury-card-title {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 0.5px;
+}
+
+.luxury-card-desc {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+/* Custom styling for the network port interface block */
+.port-box-variant {
+  border-left: 2px solid var(--neon-cyan);
+}
+
+.text-cyan-accent {
+  color: var(--neon-cyan) !important;
+  font-weight: 700;
+}
+
+/* Reduces bottom spacing slightly to make room for dual terminal indicators */
+.terminal-data-body .data-metric-row {
+  margin-bottom: 1.25rem;
+}
+/* ── QUAD NAVIGATION DOCK GRID ── */
+.custom-quad-dock {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 540px;
+  margin-top: 2rem;
+}
+
+@media (max-width: 968px) {
+  .custom-quad-dock {
+    margin: 2rem auto 0 auto;
+  }
+}
+
+.premium-cta-btn-quad {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  letter-spacing: 1.5px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-cta-btn-quad i {
+  font-size: 1rem;
+  opacity: 0.8;
+  transition: transform 0.25s ease;
+}
+
+/* Card Specific Hover Highlight Varieties */
+.premium-cta-btn-quad.primary-glow:hover {
+  background: linear-gradient(135deg, #ffaa00 0%, #ff5500 100%);
+  border-color: #ffaa00;
+  color: #000;
+  box-shadow: 0 6px 20px rgba(255, 170, 0, 0.25);
+}
+
+.premium-cta-btn-quad.cyan-glow:hover {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-purple) 100%);
+  border-color: var(--neon-cyan);
+  color: #000;
+  box-shadow: 0 6px 20px rgba(0, 242, 254, 0.25);
+}
+
+.premium-cta-btn-quad.grey-glow:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.premium-cta-btn-quad:hover i {
+  transform: scale(1.15);
+}

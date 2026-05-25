@@ -1,0 +1,226 @@
+/* Navbar.css — refactored
+ * Changes:
+ * 1. Added skip-nav-link for keyboard accessibility
+ * 2. Replaced boolean mount for mobile menu with CSS transition
+ *    (transform + opacity) to avoid layout jank on open/close
+ * 3. Added :focus-visible states for all interactive nav elements
+ * 4. Removed redundant display:none/flex toggle in favour of transform
+ */
+
+/* ── Skip navigation ─────────────────────────────────────────────────── */
+.skip-nav-link {
+  position: fixed;
+  top: -100%;
+  left: 12px;
+  z-index: 9999;
+  padding: 10px 20px;
+  background: var(--accent-cyan);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: top 0.15s ease;
+}
+.skip-nav-link:focus {
+  top: 12px;
+}
+
+/* ── Nav shell ───────────────────────────────────────────────────────── */
+.nav-blur {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba(7, 7, 9, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+  transition: var(--transition-smooth);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+/* ── Logo ────────────────────────────────────────────────────────────── */
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  border-radius: 4px;
+}
+
+.logo-area:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 4px;
+}
+
+.logo-icon {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px var(--accent-glow);
+  flex-shrink: 0;
+}
+
+.logo-text {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 2px;
+  background: linear-gradient(to right, #fff, var(--text-muted));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Desktop links ───────────────────────────────────────────────────── */
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.nav-item {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: var(--transition-fast);
+  cursor: pointer;
+  position: relative;
+  padding: 4px 0;
+  background: none;
+  border: none;
+  border-radius: 2px;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--accent-cyan);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 8px var(--accent-cyan);
+}
+
+.nav-item:hover,
+.nav-item.active { color: #fff; }
+.nav-item.active::after,
+.nav-item:hover::after { width: 100%; }
+
+.nav-item:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 4px;
+  color: #fff;
+}
+
+/* ── Actions area ────────────────────────────────────────────────────── */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-nav-auth {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  padding: 10px 20px;
+  border-radius: 4px;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-nav-auth:hover {
+  border-color: var(--accent-cyan);
+  background: rgba(0, 245, 212, 0.05);
+  box-shadow: 0 0 15px rgba(0, 245, 212, 0.1);
+}
+
+.btn-nav-auth:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+}
+
+/* ── Mobile toggle ───────────────────────────────────────────────────── */
+.mobile-toggle {
+  display: none;
+  font-size: 24px;
+  color: var(--text-main);
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.mobile-toggle:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+}
+
+/* ── Mobile menu — CSS transition instead of conditional mount ───────── */
+.mobile-menu {
+  position: fixed;
+  top: 80px; left: 0;
+  width: 100%;
+  background: var(--bg-dark);
+  border-bottom: 1px solid var(--border-color);
+  padding: 24px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 999;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
+  /* Hidden state */
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.25s ease;
+}
+
+.mobile-menu--open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-auth-container { padding: 4px 0; }
+
+@media (max-width: 768px) {
+  .nav-links       { display: none; }
+  .mobile-toggle   { display: block; }
+  .nav-container   { padding: 0 20px; }
+  .mobile-menu     { padding: 24px 20px; }
+}

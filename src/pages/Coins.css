@@ -1,0 +1,237 @@
+/* Premium Store Layout Overhauls */
+.modern-store-theme {
+  --surface-panel: rgba(13, 13, 17, 0.7);
+  --border-glow: rgba(255, 255, 255, 0.04);
+  --text-dim: #94a3b8;
+  --accent-cyan: #00f2fe;
+}
+
+.store-hero {
+  text-align: center;
+  margin-bottom: 4.5rem;
+}
+
+.section-label-premium {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--card-accent, var(--accent-cyan));
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.section-title-modern {
+  font-family: var(--font-display, inherit);
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+}
+
+.section-subtitle {
+  color: var(--text-dim);
+  max-width: 600px;
+  margin: 1rem auto 0 auto;
+  font-size: 1.1rem;
+}
+
+/* The Grid System */
+.coins-grid-modern {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+/* The Premium Card Architecture */
+.coin-card-modern {
+  position: relative;
+  background: var(--surface-panel);
+  border: 1px solid var(--border-glow);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.coin-card-modern:hover {
+  transform: translateY(-8px);
+  border-color: var(--card-accent);
+  box-shadow: 0 12px 40px -10px var(--card-accent)22;
+}
+
+.featured-card {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: linear-gradient(180deg, rgba(20, 20, 30, 0.8) 0%, rgba(10, 10, 15, 0.9) 100%);
+  box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Glass Inner Highlights */
+.card-glass-glow {
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Meta Labels */
+.card-header-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.tier-tag {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.bonus-tag {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Icon Area & Light Pulses */
+.coin-display-aura {
+  position: relative;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.premium-icon {
+  font-size: 3.5rem;
+  filter: drop-shadow(0 8px 16px var(--card-accent)44);
+  z-index: 2;
+}
+
+.aura-pulse {
+  position: absolute;
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Value Formatting */
+.value-block {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.coin-amount-text {
+  font-family: var(--font-display, inherit);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+}
+
+.currency-label {
+  font-size: 1rem;
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+.price-tag-badge {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.price-tag-badge .currency-symbol {
+  color: var(--text-dim);
+  font-size: 1.1rem;
+  margin-right: 2px;
+}
+
+/* Call-to-Action Buttons */
+.btn-store-action {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-store-action:hover {
+  background: var(--card-accent);
+  border-color: var(--card-accent);
+  color: #000;
+}
+
+.btn-store-featured {
+  background: var(--card-accent);
+  border-color: var(--card-accent);
+  color: #000;
+}
+
+.btn-store-featured:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 4px 20px var(--card-accent)44;
+}
+
+.action-arrow {
+  transition: transform 0.3s ease;
+}
+
+.btn-store-action:hover .action-arrow {
+  transform: translateX(4px);
+}
+
+/* Ribbon Component */
+.premium-ribbon {
+  position: absolute;
+  top: 15px; right: -35px;
+  background: #fff;
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 40px;
+  transform: rotate(45deg);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  letter-spacing: 0.5px;
+}
+
+/* Back navigation */
+.btn-back-premium {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.btn-back-premium:hover {
+  color: #fff;
+}
