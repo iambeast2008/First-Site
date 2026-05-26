@@ -116,9 +116,15 @@
   margin-bottom: 1rem;
 }
 
-.premium-icon {
+.coin-display-aura .premium-icon {
+  display: inline-block;
   font-size: 3.5rem;
-  filter: drop-shadow(0 8px 16px var(--card-accent)44);
+  line-height: 1;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  filter: drop-shadow(0 8px 16px color-mix(in srgb, var(--card-accent, #00f2fe) 27%, transparent));
   z-index: 2;
 }
 

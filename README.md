@@ -1,40 +1,31 @@
 # MIST SMP — React Project
 
-A fully structured React SPA converted from the original single-file HTML site.
+A React SPA for the MIST SMP Minecraft server store and info site.
 
 ## Project Structure
 
 ```
 src/
-├── index.jsx              # React entry point
+├── index.jsx              # Entry point + Clerk bootstrap
 ├── index.css              # Global styles & design tokens
 ├── App.jsx                # App shell + client-side router
 ├── context/
-│   └── AppContext.jsx     # Global state (auth, navigation, toast, checkout)
+│   └── AppContext.jsx     # Navigation, mobile menu, toasts
 ├── data/
-│   └── index.js           # All static content (ranks, coins, rules, FAQs, features)
-├── hooks/
-│   └── usePasswordStrength.js
+│   └── index.js           # Ranks, coins, rules, FAQs, server info
 ├── components/
 │   ├── AmbientCanvas.jsx  # Background particle/mist animation
-│   ├── AmbientCanvas.css
-│   ├── Navbar.jsx         # Responsive nav + profile dropdown
-│   ├── Navbar.css
+│   ├── Navbar.jsx
 │   ├── Footer.jsx
-│   ├── Footer.css
-│   ├── Toast.jsx          # Notification toasts
-│   └── Toast.css
+│   └── Toast.jsx
 └── pages/
-    ├── Home.jsx / Home.css
-    ├── About.jsx / About.css
-    ├── Ranks.jsx / Ranks.css      # Rank list + detail (RankDetail.jsx)
-    ├── RankDetail.jsx
-    ├── Coins.jsx / Coins.css      # Coin list + detail (CoinDetail)
-    ├── Rules.jsx / Rules.css
-    ├── StoreInfo.jsx / StoreInfo.css  # FAQ accordion + policy
-    ├── Auth.jsx / Auth.css        # Login / Register / Forgot password
-    ├── Account.jsx / Account.css  # Dashboard, stats, order history
-    └── Checkout.jsx / Checkout.css
+    ├── Home.jsx
+    ├── About.jsx
+    ├── Ranks.jsx
+    ├── Coins.jsx
+    ├── Rules.jsx
+    ├── StoreInfo.jsx
+    └── Account.jsx        # Clerk profile (signed-in users)
 ```
 
 ## Getting Started
@@ -43,26 +34,35 @@ src/
 # Install dependencies
 npm install
 
+# Copy env template and add your Clerk publishable key
+cp .env.example .env
+
 # Start development server
-npm start
+npm run dev
 
 # Build for production
 npm run build
 ```
 
+## Environment
+
+| Variable | Description |
+|----------|-------------|
+| `VITE_CLERK_PUBLISHABLE_KEY` | Clerk publishable key ([dashboard](https://dashboard.clerk.com)) |
+
+`REACT_APP_CLERK_PUBLISHABLE_KEY` is also supported for backward compatibility.
+
 ## Key Features
 
-- **Client-side routing** — custom router via React context (`useApp().navigate`)
-- **Auth state** — simulated login/register/Google OAuth, persisted via `localStorage`
-- **Ambient canvas** — particle spark + mist layer animation (canvas API)
-- **Responsive** — mobile nav drawer, responsive grids
-- **Toast notifications** — global notification system
-- **Checkout flow** — simulated Razorpay transaction with order history
+- **Client-side routing** — custom router via `useApp().navigate`
+- **Clerk authentication** — sign-in modal and account page
+- **Ambient canvas** — particle + mist background (respects reduced motion)
+- **Responsive** — mobile nav drawer
+- **Toast notifications** — copy-to-clipboard feedback on Home
+- **Purchases** — Discord ticket flow for ranks and coins
 
 ## Customization
 
-- Edit `src/data/index.js` to update ranks, coin packs, rules, FAQs, server IP
+- Edit `src/data/index.js` for ranks, coin packs, rules, FAQs, and server IP
 - Design tokens live in `src/index.css` under `:root`
-- Swap simulated auth for a real backend (Firebase, Supabase, etc.) in `AppContext.jsx`
-- Replace simulated checkout with real Razorpay SDK in `executeCheckout()` in `AppContext.jsx`
-# First-Site
+- Update `DISCORD_INVITE_LINK` in `src/data/index.js` for purchase redirects

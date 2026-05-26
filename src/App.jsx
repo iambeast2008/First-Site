@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import { useApp } from './context/AppContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -6,13 +6,12 @@ import Toast from './components/Toast';
 import AmbientCanvas from './components/AmbientCanvas';
 import Home from './pages/Home';
 
-const About      = lazy(() => import('./pages/About'));
-const Ranks      = lazy(() => import('./pages/Ranks'));
-const Coins      = lazy(() => import('./pages/Coins').then(m => ({ default: m.Coins })));
-const Rules      = lazy(() => import('./pages/Rules'));
-const StoreInfo  = lazy(() => import('./pages/StoreInfo'));
-const Account    = lazy(() => import('./pages/Account'));
-const CoinDetail = lazy(() => import('./pages/Coins').then(m => ({ default: m.CoinDetail })));
+const About     = lazy(() => import('./pages/About'));
+const Ranks     = lazy(() => import('./pages/Ranks'));
+const Coins     = lazy(() => import('./pages/Coins'));
+const Rules     = lazy(() => import('./pages/Rules'));
+const StoreInfo = lazy(() => import('./pages/StoreInfo'));
+const Account   = lazy(() => import('./pages/Account'));
 
 function PageSkeleton() {
   return (
@@ -23,9 +22,6 @@ function PageSkeleton() {
 }
 
 function RouteView({ route }) {
-  const coinMatch = route.match(/^coins-(.+)$/);
-  if (coinMatch) return <CoinDetail packId={coinMatch[1]} />;
-
   switch (route) {
     case 'home':       return <Home />;
     case 'about':      return <About />;

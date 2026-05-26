@@ -1,66 +1,64 @@
 import { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { FEATURES } from '../data';
+import { FEATURES, SERVER_IP, SERVER_PORT } from '../data';
 import './Home.css';
 
 export default function Home() {
-  const { navigate } = useApp();
+  const { navigate, showToast } = useApp();
   const [copiedHost, setCopiedHost] = useState(false);
   const [copiedPort, setCopiedPort] = useState(false);
 
   const copyHost = () => {
-    navigator.clipboard.writeText('mistsmp.online').then(() => {
+    navigator.clipboard.writeText(SERVER_IP).then(() => {
       setCopiedHost(true);
+      showToast('Host address copied', 'success');
       setTimeout(() => setCopiedHost(false), 2500);
     });
   };
 
   const copyPort = () => {
-    navigator.clipboard.writeText('19052').then(() => {
+    navigator.clipboard.writeText(SERVER_PORT).then(() => {
       setCopiedPort(true);
+      showToast('Port copied', 'success');
       setTimeout(() => setCopiedPort(false), 2500);
     });
   };
 
   return (
     <div className="page-enter luxury-home-canvas">
-      
-      {/* ── SECTION 1: CINEMATIC CYBER HERO ── */}
       <section className="prime-hero-deck">
         <div className="hero-grid-matrix">
-          
           <div className="hero-intel-column">
             <div className="live-status-pill">
               <span className="pulse-indicator"></span>
               <span className="pill-text">MIST NETWORK IS ONLINE</span>
             </div>
-            
+
             <h1 className="cyber-brand-title">
               MIST <span className="gradient-glow-text">SMP</span>
             </h1>
-            
+
             <p className="cyber-brand-tagline">
-              Dive into a cutthroat, high-stakes vanilla+ survival landscape. 
+              Dive into a cutthroat, high-stakes vanilla+ survival landscape.
               Navigate localized anomalies, conquer seasonal leaderboards, and engage in tactical base raiding.
             </p>
 
-            {/* Revamped Luxury Navigation Dock Links */}
             <div className="hero-action-dock custom-quad-dock">
               <button className="premium-cta-btn-quad primary-glow" onClick={() => navigate('ranks')}>
                 <i className="fa-solid fa-crown" />
                 <span>RANKS</span>
               </button>
-              
+
               <button className="premium-cta-btn-quad cyan-glow" onClick={() => navigate('coins')}>
                 <i className="fa-solid fa-coins" />
                 <span>COINS</span>
               </button>
-              
+
               <button className="premium-cta-btn-quad grey-glow" onClick={() => navigate('about')}>
                 <i className="fa-solid fa-circle-info" />
                 <span>ABOUT</span>
               </button>
-              
+
               <button className="premium-cta-btn-quad grey-glow" onClick={() => navigate('rules')}>
                 <i className="fa-solid fa-gavel" />
                 <span>RULES</span>
@@ -68,30 +66,39 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Core Server Live Terminal View */}
           <div className="hero-terminal-column">
             <div className="cyber-terminal-shell">
               <div className="terminal-header-bar">
                 <div className="window-dots"><span></span><span></span><span></span></div>
                 <span className="window-title">connection_hub.sys</span>
               </div>
-              
+
               <div className="terminal-data-body">
-                {/* Host IP Block */}
                 <div className="data-metric-row">
                   <span className="metric-label">HOST ADDRESS</span>
-                  <div className="terminal-ip-box port-box-variant" onClick={copyHost} role="button" tabIndex={0}>
-                    <span className="ip-string-highlight text-cyan-accent">mistsmp.online</span>
-                    <i className={copiedHost ? "fa-solid fa-circle-check text-green" : "fa-regular fa-copy"} />
+                  <div
+                    className="terminal-ip-box port-box-variant"
+                    onClick={copyHost}
+                    onKeyDown={(e) => e.key === 'Enter' && copyHost()}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <span className="ip-string-highlight text-cyan-accent">{SERVER_IP}</span>
+                    <i className={copiedHost ? 'fa-solid fa-circle-check text-green' : 'fa-regular fa-copy'} />
                   </div>
                 </div>
 
-                {/* Network Port Assignment Module Block */}
                 <div className="data-metric-row">
                   <span className="metric-label">CONNECTION PORT (BEDROCK)</span>
-                  <div className="terminal-ip-box port-box-variant" onClick={copyPort} role="button" tabIndex={0}>
-                    <span className="ip-string-highlight text-cyan-accent">19052</span>
-                    <i className={copiedPort ? "fa-solid fa-circle-check text-green" : "fa-regular fa-copy"} />
+                  <div
+                    className="terminal-ip-box port-box-variant"
+                    onClick={copyPort}
+                    onKeyDown={(e) => e.key === 'Enter' && copyPort()}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <span className="ip-string-highlight text-cyan-accent">{SERVER_PORT}</span>
+                    <i className={copiedPort ? 'fa-solid fa-circle-check text-green' : 'fa-regular fa-copy'} />
                   </div>
                 </div>
 
@@ -111,16 +118,16 @@ export default function Home() {
                 </div>
 
                 <p className="terminal-footer-hint">
-                  {copiedHost || copiedPort ? "✓ Field copied successfully!" : "Click individual values above to copy instantly."}
+                  {copiedHost || copiedPort
+                    ? '✓ Field copied successfully!'
+                    : 'Click individual values above to copy instantly.'}
                 </p>
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* ── SECTION 2: REVAMPED ECOSYSTEM MODULES ── */}
       <section className="ecosystem-section-wrap">
         <div className="modern-section-header">
           <p className="micro-accent-title">SYSTEM ARCHITECTURE</p>
@@ -129,10 +136,10 @@ export default function Home() {
         </div>
 
         <div className="luxury-feature-grid">
-          {FEATURES.map((feat, idx) => (
-            <div key={idx} className="luxury-feature-card">
+          {FEATURES.map((feat) => (
+            <div key={feat.title} className="luxury-feature-card">
               <div className="card-glow-overlay"></div>
-              
+
               <div className="luxury-icon-container">
                 <i className={feat.icon} />
               </div>
@@ -147,7 +154,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
     </div>
   );
 }

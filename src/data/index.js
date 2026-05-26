@@ -53,15 +53,51 @@ export const RANKS = [
       '👑 Exclusive DIVINE Discord channel',
       '🏆 All IMMORTAL & DOMINATOR perks included',
     ],
-  }, 
+  },
 ];
 
 // ================= COIN PACKS =================
 export const COIN_PACKS = [
-  { id: 'pack-1', amount: 500, price: 1.99,  featured: false },
-  { id: 'pack-2', amount: 1000, price: 3.59, featured: false },
-  { id: 'pack-3', amount: 2500, price: 8.99, featured: false },
-  { id: 'pack-4', amount: 6000, price: 19.99, featured: true,  tag: 'Best Value' },
+  {
+    id: 'pack-1',
+    amount: 500,
+    price: 1.99,
+    popular: false,
+    tier: 'Bronze Cache',
+    bonus: 'Standard Rate',
+    iconClass: 'fa-solid fa-coins',
+    color: '#cd7f32',
+  },
+  {
+    id: 'pack-2',
+    amount: 1000,
+    price: 3.59,
+    popular: true,
+    tier: 'Silver Hoard',
+    bonus: '+20% Extra Coins',
+    iconClass: 'fa-solid fa-coins',
+    color: '#b4b4b4',
+  },
+  {
+    id: 'pack-3',
+    amount: 2500,
+    price: 8.99,
+    popular: false,
+    tier: 'Gold Vault',
+    bonus: '+25% Extra Coins',
+    iconClass: 'fa-solid fa-sack-dollar',
+    color: '#ffd700',
+  },
+  {
+    id: 'pack-4',
+    amount: 6000,
+    price: 19.99,
+    popular: false,
+    tier: 'Mythic Treasury',
+    bonus: '+33% Extra Coins',
+    iconClass: 'fa-solid fa-gem',
+    color: '#a335ee',
+  },
 ];
 
 // ================= RULES =================
@@ -115,6 +151,8 @@ export const FAQS = [
 
 // ================= SERVER INFO =================
 export const SERVER_IP = 'mistsmp.online';
+export const SERVER_PORT = '19052';
+export const DISCORD_INVITE_LINK = 'https://discord.gg/PvnHdGkd9T';
 
 export const FEATURES = [
   {
@@ -143,7 +181,7 @@ export const JOIN_STEPS = [
   {
     num: '02',
     title: 'Establish Network Node',
-    body: 'Navigate to Multiplayer → Add Server within the client interface. Enter play.mistsmp.com within the server connection field.',
+    body: `Navigate to Multiplayer → Add Server within the client interface. Enter ${SERVER_IP} within the server connection field.`,
   },
   {
     num: '03',

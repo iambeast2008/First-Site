@@ -11,7 +11,6 @@
  * 4. Loading state is shown with a proper ARIA live region.
  */
 
-import React from 'react';
 import { useUser, RedirectToSignIn } from '@clerk/clerk-react';
 import './Account.css';
 

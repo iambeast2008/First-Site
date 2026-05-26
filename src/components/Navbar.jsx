@@ -7,7 +7,7 @@ const NAV_ITEMS = [
   { label: 'Home',       route: 'home'       },
   { label: 'About',      route: 'about'      },
   { label: 'Ranks',      route: 'ranks'      },
-  { label: 'Coins',      route: 'coins'      }, // Added the missing currency store view
+  { label: 'Coins',      route: 'coins'      },
   { label: 'Rules',      route: 'rules'      },
   { label: 'Store Info', route: 'store-info' },
 ];
@@ -58,6 +58,13 @@ export default function Navbar() {
             </SignedOut>
 
             <SignedIn>
+              <button
+                className={`nav-item account-nav-link ${route === 'account' ? 'active' : ''}`}
+                onClick={() => navigate('account')}
+                aria-current={route === 'account' ? 'page' : undefined}
+              >
+                Account
+              </button>
               <div className="user-button-wrapper" style={{ display: 'flex', alignItems: 'center' }}>
                 <UserButton afterSignOutUrl="/" appearance={{ elements: { userButtonAvatarBox: { width: '32px', height: '32px', borderRadius: '4px' }}}} />
               </div>
@@ -91,6 +98,15 @@ export default function Navbar() {
               <button className="btn-nav-auth" style={{ width: '100%' }}>Sign In</button>
             </SignInButton>
           </SignedOut>
+          <SignedIn>
+            <button
+              className={`nav-item ${route === 'account' ? 'active' : ''}`}
+              onClick={() => navigate('account')}
+              style={{ width: '100%', marginTop: 8 }}
+            >
+              Account
+            </button>
+          </SignedIn>
         </div>
       </nav>
     </>

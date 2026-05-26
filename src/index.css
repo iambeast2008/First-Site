@@ -5,11 +5,9 @@
  *    across all interactive elements without affecting mouse users.
  * 2. Added @media (prefers-reduced-motion) block — disables all
  *    transitions and animations for users who opt out of motion.
- * 3. Added .inline-cmd shared utility — used by RichText component for
- *    safe Minecraft command highlighting (replaces dangerouslySetInnerHTML).
- * 4. Added .content-wrapper and .app-container layout classes that
+ * 3. Added .content-wrapper and .app-container layout classes that
  *    App.jsx references but were never defined globally.
- * 5. Added focus-visible to buttons via a scoped rule so third-party
+ * 4. Added focus-visible to buttons via a scoped rule so third-party
  *    components (Clerk) don't inherit the global focus ring unexpectedly.
  */
 
@@ -204,18 +202,6 @@ textarea {
 .btn-secondary:focus-visible {
   outline: 2px solid var(--accent-cyan);
   outline-offset: 3px;
-}
-
-/* ── Inline command highlight (RichText component) ──────────────────── */
-/* Shared class used wherever Minecraft /commands appear in text.
-   Safe JSX-rendered replacement for dangerouslySetInnerHTML. */
-.inline-cmd {
-  background: rgba(0, 245, 212, 0.1);
-  color: var(--accent-cyan);
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-family: monospace;
-  font-size: 0.9em;
 }
 
 /* ── Responsive ─────────────────────────────────────────────────────── */

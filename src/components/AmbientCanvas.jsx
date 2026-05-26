@@ -40,7 +40,7 @@ export default function AmbientCanvas() {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
-        document.querySelectorAll('.feature-card').forEach((card) => {
+        document.querySelectorAll('.luxury-feature-card').forEach((card) => {
           const b = card.getBoundingClientRect();
           card.style.setProperty('--x', `${e.clientX - b.left}px`);
           card.style.setProperty('--y', `${e.clientY - b.top}px`);
