@@ -1,4 +1,3 @@
-import { useApp } from '../context/AppContext';
 import { RANKS } from '../data';
 import './Ranks.css';
 
