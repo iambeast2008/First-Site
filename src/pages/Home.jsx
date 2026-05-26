@@ -80,8 +80,8 @@ export default function Home() {
                 {/* Host IP Block */}
                 <div className="data-metric-row">
                   <span className="metric-label">HOST ADDRESS</span>
-                  <div className="terminal-ip-box" onClick={copyHost} role="button" tabIndex={0}>
-                    <span className="ip-string-highlight">mistsmp.online</span>
+                  <div className="terminal-ip-box port-box-variant" onClick={copyHost} role="button" tabIndex={0}>
+                    <span className="ip-string-highlight text-cyan-accent">mistsmp.online</span>
                     <i className={copiedHost ? "fa-solid fa-circle-check text-green" : "fa-regular fa-copy"} />
                   </div>
                 </div>
@@ -98,11 +98,11 @@ export default function Home() {
                 <div className="terminal-grid-stats">
                   <div className="stat-terminal-card">
                     <span className="card-mini-label">VERSION</span>
-                    <span className="card-big-value">1.20.X</span>
+                    <span className="card-big-value">1.9-26.1</span>
                   </div>
                   <div className="stat-terminal-card">
                     <span className="card-mini-label">CURRENT SEASON</span>
-                    <span className="card-big-value" style={{ color: 'var(--accent-cyan)' }}>04</span>
+                    <span className="card-big-value" style={{ color: 'var(--accent-cyan)' }}>01</span>
                   </div>
                   <div className="stat-terminal-card">
                     <span className="card-mini-label">TICKRATE</span>
