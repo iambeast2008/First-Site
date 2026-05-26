@@ -6,10 +6,10 @@ import './Coins.css';
 const DISCORD_INVITE_LINK = "https://discord.gg/PvnHdGkd9T";
 
 const COIN_PACKS = [
-  { id: 'pack-1', amount: 500, price: 4.99, popular: false, tier: 'Bronze Cache', bonus: 'Standard Rate', iconClass: 'fa-solid fa-coins', color: '#cd7f32' },
-  { id: 'pack-2', amount: 1200, price: 9.99, popular: true, tier: 'Silver Hoard', bonus: '+20% Extra Coins', iconClass: 'fa-solid fa-coins', color: '#b4b4b4' },
-  { id: 'pack-3', amount: 2500, price: 19.99, popular: false, tier: 'Gold Vault', bonus: '+25% Extra Coins', iconClass: 'fa-solid fa-vault', color: '#ffd700' },
-  { id: 'pack-4', amount: 6000, price: 44.99, popular: false, tier: 'Mythic Treasury', bonus: '+33% Extra Coins', iconClass: 'fa-solid fa-gem', color: '#a335ee' },
+  { id: 'pack-1', amount: 500, price: 1.99, popular: false, tier: 'Bronze Cache', bonus: 'Standard Rate', iconClass: 'fa-solid fa-coins', color: '#cd7f32' },
+  { id: 'pack-2', amount: 1000, price: 3.59, popular: true, tier: 'Silver Hoard', bonus: '+20% Extra Coins', iconClass: 'fa-solid fa-coins', color: '#b4b4b4' },
+  { id: 'pack-3', amount: 2500, price: 8.99, popular: false, tier: 'Gold Vault', bonus: '+25% Extra Coins', iconClass: 'fa-solid fa-vault', color: '#ffd700' },
+  { id: 'pack-4', amount: 6000, price: 19.99, popular: false, tier: 'Mythic Treasury', bonus: '+33% Extra Coins', iconClass: 'fa-solid fa-gem', color: '#a335ee' },
 ];
 
 export function Coins() {

@@ -1,92 +1,67 @@
 // ================= RANKS =================
 export const RANKS = [
   {
-    id: 'divine',
-    name: 'Divine',
+    id: 'dominator',
+    name: 'Dominator',
     badge: 'Entry Elite',
-    price: 15,
-    color: '#00f5d4',
-    className: 'rank-id-divine',
+    price: 2.59,
+    color: '#00d0f5',
+    className: 'rank-id-dominator',
     perks: [
-      'Glowing Cosmic Chat Prefix',
-      '3x Maximum Base Claims',
-      'Access to /wb and /condense',
-      '12-Slot Player Market Vault',
-    ],
-    detailPerks: [
-      {
-        icon: 'fa-solid fa-tags',
-        title: 'Visual Identity Framework',
-        desc: 'Gain access to the glowing turquoise [DIVINE] prefix across all global chat channels, local voice indicators, and community discord servers.',
-      },
-      {
-        icon: 'fa-solid fa-box-open',
-        title: 'Utility Automation Suite',
-        desc: 'Execute high-speed inventory processing utilities natively via commands. Includes virtual portable crafting benches (/wb) and material compression (/condense).',
-      },
+      '🏠 5 home points (vs 3 default)',
+      '🎨 Colored username in all chat channels',
+      '🎁 Weekly DOMINATOR kit',
+      '🏷️ Aqua [DOMINATOR] prefix in chat',
+      '🛒 10% discount on all shop purchases',
+      '🎰 Weekly DOMINATOR crate key',
+      '💰 Bonus daily in-game coins',
+      '📣 DOMINATOR Discord channel access',
     ],
   },
   {
     id: 'immortal',
     name: 'Immortal',
     badge: 'Most Popular',
-    price: 35,
+    price: 4.99,
     color: '#9d4edd',
     className: 'rank-id-immortal',
     perks: [
-      'Everything in Divine Tier',
-      '7x Maximum Base Claims',
-      'Priority Dynamic Queue Entry',
-      'Access to /fly within Claims',
-    ],
-    detailPerks: [
-      {
-        icon: 'fa-solid fa-bolt',
-        title: 'Network Privilege Array',
-        desc: 'Bypass regular server volume limits with tier-one slot reservation, granting seamless priority entry even when structural capacities hit maximum thresholds.',
-      },
-      {
-        icon: 'fa-solid fa-earth-americas',
-        title: 'Spatial Sovereignty',
-        desc: 'Gain atmospheric flight authorization (/fly) within your designated claimed zones to accelerate massive architectural builds and defense infrastructure assembly.',
-      },
+      '🎁 Weekly IMMORTAL kit with exclusive items',
+      '🏷️ Green [IMMORTAL] prefix in global chat',
+      '🛒 15% discount on all shop purchases',
+      '🏠 7 home points',
+      '⚡ Priority queue access',
+      '🎨 Custom colored username',
+      '📦 Weekly IMMORTAL crate keys',
+      '🏆 All DOMINATOR perks included',
     ],
   },
   {
-    id: 'dominator',
-    name: 'Dominator',
+    id: 'divine',
+    name: 'Divine',
     badge: 'Apex Paradigm',
-    price: 75,
+    price: 7.99,
     color: '#ff0054',
-    className: 'rank-id-dominator',
+    className: 'rank-id-divine',
     perks: [
-      'Everything in Immortal Tier',
-      'Unlimited Claim Nodes',
-      'Global Join/Leave Broadcaster',
-      'Elite Weekly Asset Crate Key',
+      '🎁 Weekly DIVINE kit with exclusive items',
+      '🏷️ Gold [DIVINE] prefix in global chat',
+      '🛒 30% discount on all shop purchases',
+      '🏠 10 home points',
+      '💬 Custom join & leave messages',
+      '📦 Weekly DIVINE crate keys',
+      '👑 Exclusive DIVINE Discord channel',
+      '🏆 All IMMORTAL & DOMINATOR perks included',
     ],
-    detailPerks: [
-      {
-        icon: 'fa-solid fa-infinity',
-        title: 'Boundless Territorial Authority',
-        desc: 'Completely removes the territorial scaling cap. Claim as many distinct defensive regions as your faction resources can actively sustain.',
-      },
-      {
-        icon: 'fa-solid fa-crown',
-        title: 'Weekly Resource Injection',
-        desc: 'Receive an automated structural key dispatch every server cycle, unlocking access to our top-tier network loot tables and exotic equipment matrices.',
-      },
-    ],
-  },
+  }, 
 ];
 
 // ================= COIN PACKS =================
 export const COIN_PACKS = [
-  { id: '500',  amount: 500,  price: 5.00,  featured: false },
-  { id: '1000', amount: 1000, price: 10.00, featured: false },
-  { id: '1500', amount: 1500, price: 14.00, featured: false },
-  { id: '2000', amount: 2000, price: 18.00, featured: true,  tag: 'Best Value' },
-  { id: '4000', amount: 4000, price: 32.00, featured: false },
+  { id: 'pack-1', amount: 500, price: 1.99,  featured: false },
+  { id: 'pack-2', amount: 1000, price: 3.59, featured: false },
+  { id: 'pack-3', amount: 2500, price: 8.99, featured: false },
+  { id: 'pack-4', amount: 6000, price: 19.99, featured: true,  tag: 'Best Value' },
 ];
 
 // ================= RULES =================
@@ -139,7 +114,7 @@ export const FAQS = [
 ];
 
 // ================= SERVER INFO =================
-export const SERVER_IP = 'PLAY.MISTSMP.COM';
+export const SERVER_IP = 'mistsmp.online';
 
 export const FEATURES = [
   {

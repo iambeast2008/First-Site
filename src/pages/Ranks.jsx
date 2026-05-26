@@ -4,7 +4,7 @@ import './Ranks.css';
 
 export default function Ranks() {
   const { navigate } = useApp();
-
+  const DISCORD_INVITE_LINK = "https://discord.gg/PvnHdGkd9T";
   return (
     <div className="page-enter">
       <div className="section-wrap">
@@ -20,7 +20,7 @@ export default function Ranks() {
               <div className="rank-price-tier">
                 <span className="price-currency">$</span>
                 <span className="price-amt">{rank.price}</span>
-                <span className="price-term">/ lifetime</span>
+                <span className="price-term">/Monthly</span>
               </div>
               <ul className="rank-perks-summary">
                 {rank.perks.map(perk => (
@@ -30,9 +30,7 @@ export default function Ranks() {
                   </li>
                 ))}
               </ul>
-              <button className="btn-rank-action" onClick={() => navigate(`rank-${rank.id}`)}>
-                Inspect Perks
-              </button>
+              <button className="btn-store-action" onClick={() => window.location.href = DISCORD_INVITE_LINK}>Confirm Purchase via Discord</button>
             </div>
           ))}
         </div>

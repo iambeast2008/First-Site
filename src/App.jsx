@@ -12,7 +12,6 @@ const Coins      = lazy(() => import('./pages/Coins').then(m => ({ default: m.Co
 const Rules      = lazy(() => import('./pages/Rules'));
 const StoreInfo  = lazy(() => import('./pages/StoreInfo'));
 const Account    = lazy(() => import('./pages/Account'));
-const RankDetail = lazy(() => import('./pages/RankDetail'));
 const CoinDetail = lazy(() => import('./pages/Coins').then(m => ({ default: m.CoinDetail })));
 
 function PageSkeleton() {
@@ -24,9 +23,6 @@ function PageSkeleton() {
 }
 
 function RouteView({ route }) {
-  const rankMatch = route.match(/^rank-(.+)$/);
-  if (rankMatch) return <RankDetail rankId={rankMatch[1]} />;
-
   const coinMatch = route.match(/^coins-(.+)$/);
   if (coinMatch) return <CoinDetail packId={coinMatch[1]} />;
 

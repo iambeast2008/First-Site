@@ -31,14 +31,14 @@
 }
 
 /* Per-rank badge colors */
-.rank-id-divine .rank-badge  { background: var(--accent-cyan); color: #000; }
+.rank-id-divine .rank-badge  { background: #ff0054; color: #fff; }
 .rank-id-immortal .rank-badge { background: #7b2cbf; color: #fff; }
-.rank-id-dominator .rank-badge { background: #ff0054; color: #fff; }
+.rank-id-dominator .rank-badge { background: var(--accent-cyan); color: #000; }
 
 /* Per-rank card border accents on hover */
-.rank-id-divine:hover   { border-color: var(--accent-cyan); box-shadow: 0 16px 40px rgba(0,245,212,0.08); }
+.rank-id-divine:hover   { border-color: #ff0054; box-shadow: 0 16px 40px rgba(255,0,84,0.08); }
 .rank-id-immortal:hover { border-color: #7b2cbf; box-shadow: 0 16px 40px rgba(123,44,191,0.08); }
-.rank-id-dominator:hover { border-color: #ff0054; box-shadow: 0 16px 40px rgba(255,0,84,0.08); }
+.rank-id-dominator:hover { border-color: var(--accent-cyan); box-shadow: 0 16px 40px rgba(0,245,212,0.08); }
 
 .rank-name {
   font-family: var(--font-display);
@@ -51,9 +51,9 @@
   margin-top: 16px;
 }
 
-.rank-id-divine .rank-name  { color: #00f5d4; }
+.rank-id-divine .rank-name  { color: #ff0054; }
 .rank-id-immortal .rank-name { color: #9d4edd; }
-.rank-id-dominator .rank-name { color: #ff0054; }
+.rank-id-dominator .rank-name { color: #00f5d4; }
 
 .rank-price-tier {
   display: flex;
@@ -85,9 +85,9 @@
   color: var(--text-muted);
 }
 
-.rank-perks-summary li i { color: var(--accent-cyan); font-size: 12px; flex-shrink: 0; }
+.rank-perks-summary li i { color: #ff0054; }
 .rank-id-immortal .rank-perks-summary li i { color: #9d4edd; }
-.rank-id-dominator .rank-perks-summary li i { color: #ff0054; }
+.rank-id-dominator .rank-perks-summary li i { color: var(--accent-cyan); font-size: 12px; flex-shrink: 0; }
 
 .btn-rank-action {
   padding: 14px 24px;
@@ -105,9 +105,9 @@
   width: 100%;
 }
 
-.rank-id-divine .btn-rank-action:hover   { background: var(--accent-cyan); color: #000; border-color: var(--accent-cyan); box-shadow: 0 10px 24px rgba(0,245,212,0.2); }
+.rank-id-divine .btn-rank-action:hover   { background: #ff0054; color: #fff; border-color: #ff0054; box-shadow: 0 10px 24px rgba(255,0,84,0.2); }
 .rank-id-immortal .btn-rank-action:hover { background: #7b2cbf; color: #fff; border-color: #7b2cbf; box-shadow: 0 10px 24px rgba(123,44,191,0.2); }
-.rank-id-dominator .btn-rank-action:hover { background: #ff0054; color: #fff; border-color: #ff0054; box-shadow: 0 10px 24px rgba(255,0,84,0.2); }
+.rank-id-dominator .btn-rank-action:hover { background: var(--accent-cyan); color: #000; border-color: var(--accent-cyan); box-shadow: 0 10px 24px rgba(0,245,212,0.2); }
 
 /* Rank detail pages */
 .detail-hero {
