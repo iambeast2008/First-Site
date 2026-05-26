@@ -1,5 +1,6 @@
 import { RANKS } from '../data';
 import './Ranks.css';
+import './Coins.css';
 
 export default function Ranks() {
   const DISCORD_INVITE_LINK = "https://discord.gg/PvnHdGkd9T";
