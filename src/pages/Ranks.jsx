@@ -3,7 +3,6 @@ import { RANKS } from '../data';
 import './Ranks.css';
 
 export default function Ranks() {
-  const { navigate } = useApp();
   const DISCORD_INVITE_LINK = "https://discord.gg/PvnHdGkd9T";
   return (
     <div className="page-enter">
