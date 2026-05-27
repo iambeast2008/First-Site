@@ -6,45 +6,22 @@ import App from './App';
 import './index.css';
 
 const CLERK_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+const CLERK_FRONTEND_API = import.meta.env.VITE_CLERK_FRONTEND_API;
 
-function MissingClerkKey() {
-  return (
-    <div
-      style={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 24,
-        background: '#07070a',
-        color: '#e8e8f0',
-        fontFamily: 'system-ui, sans-serif',
-        textAlign: 'center',
-      }}
-    >
-      <div>
-        <h1 style={{ fontSize: 20, marginBottom: 12 }}>Configuration required</h1>
-        <p style={{ color: '#7a7a8c', maxWidth: 420, lineHeight: 1.6 }}>
-          Set <code>VITE_CLERK_PUBLISHABLE_KEY</code> in a <code>.env</code> file
-          (see <code>.env.example</code>) and restart the dev server.
-        </p>
-      </div>
-    </div>
-  );
-}
+const clerkConfig = CLERK_KEY
+  ? { publishableKey: CLERK_KEY }
+  : CLERK_FRONTEND_API
+  ? { frontendApi: CLERK_FRONTEND_API }
+  : {};
 
 const root = createRoot(document.getElementById('root'));
 
 root.render(
   <StrictMode>
-    {CLERK_KEY ? (
-      <ClerkProvider publishableKey={CLERK_KEY}>
-        <AppProvider>
-          <App />
-        </AppProvider>
-      </ClerkProvider>
-    ) : (
-      <MissingClerkKey />
-    )}
+    <ClerkProvider {...clerkConfig}>
+      <AppProvider>
+        <App />
+      </AppProvider>
+    </ClerkProvider>
   </StrictMode>
 );
