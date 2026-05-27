@@ -12,6 +12,8 @@ const Coins     = lazy(() => import('./pages/Coins'));
 const Rules     = lazy(() => import('./pages/Rules'));
 const StoreInfo = lazy(() => import('./pages/StoreInfo'));
 const Account   = lazy(() => import('./pages/Account'));
+const Privacy   = lazy(() => import('./pages/Privacy'));
+const Terms     = lazy(() => import('./pages/Terms'));
 
 function PageSkeleton() {
   return (
@@ -30,6 +32,8 @@ function RouteView({ route }) {
     case 'rules':      return <Rules />;
     case 'store-info': return <StoreInfo />;
     case 'account':    return <Account />;
+    case 'privacy':    return <Privacy />;
+    case 'terms':      return <Terms />;
     default:           return <Home />;
   }
 }

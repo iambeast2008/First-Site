@@ -355,18 +355,21 @@
 .terminal-data-body .data-metric-row {
   margin-bottom: 1.25rem;
 }
-/* ── QUAD NAVIGATION DOCK GRID ── */
+/* ── HERO NAVIGATION DOCK (6 tiles) ── */
+.custom-hex-dock,
 .custom-quad-dock {
   display: grid !important;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
-  max-width: 540px;
+  max-width: 560px;
   margin-top: 2rem;
 }
 
 @media (max-width: 968px) {
+  .custom-hex-dock,
   .custom-quad-dock {
     margin: 2rem auto 0 auto;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -416,4 +419,73 @@
 
 .premium-cta-btn-quad:hover i {
   transform: scale(1.15);
+}
+
+/* ── Quick links section ── */
+.home-quick-section {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem 5rem;
+}
+
+.home-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.home-quick-card {
+  text-align: left;
+  background: var(--card-dark);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.75rem;
+  cursor: pointer;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+  color: inherit;
+}
+
+.home-quick-card:hover {
+  border-color: rgba(0, 242, 254, 0.3);
+  transform: translateY(-4px);
+}
+
+.home-quick-card i {
+  font-size: 1.5rem;
+  color: var(--neon-cyan);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.home-quick-card h3 {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.1rem;
+  color: #fff;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.home-quick-card p {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.home-legal-strip {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.home-legal-strip p {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.home-legal-strip .legal-links-bar {
+  justify-content: center;
 }

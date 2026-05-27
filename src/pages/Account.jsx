@@ -1,20 +1,10 @@
-/**
- * Account.jsx
- *
- * FIXES:
- * 1. [CSS MISMATCH] The previous Account.jsx used class names (account-page,
- *    account-grid, info-card, etc.) that do not exist anywhere in Account.css,
- *    resulting in an unstyled page. This version uses the correct class names
- *    defined in Account.css, plus minimal inline fallbacks where needed.
- * 2. Profile avatar uses a safe fallback when imageUrl is undefined.
- * 3. Added alt text and aria attributes for the avatar image.
- * 4. Loading state is shown with a proper ARIA live region.
- */
-
 import { useUser, RedirectToSignIn } from '@clerk/clerk-react';
+import { useApp } from '../context/AppContext';
+import LegalLinks from '../components/LegalLinks';
 import './Account.css';
 
 export default function Account() {
+  const { navigate } = useApp();
   const { isLoaded, isSignedIn, user } = useUser();
 
   if (!isLoaded) {
@@ -36,15 +26,26 @@ export default function Account() {
     return <RedirectToSignIn />;
   }
 
-  const displayName =
-    user.firstName || user.username || 'Player';
-  const email =
-    user.primaryEmailAddress?.emailAddress ?? '';
+  const displayName = user.firstName || user.username || 'Player';
+  const email = user.primaryEmailAddress?.emailAddress ?? '';
 
   return (
     <div className="page-enter">
       <div className="section-wrap">
-        {/* ── Profile header ── */}
+        <div className="section-header">
+          <p className="section-label">Player Hub</p>
+          <h2 className="section-title">Your Account</h2>
+        </div>
+
+        <p className="page-intro">
+          Your profile is managed securely through Clerk. Purchases are completed on Discord—this
+          page helps you track your identity and link your in-game character. See our{' '}
+          <button type="button" className="inline-nav-link" onClick={() => navigate('privacy')}>
+            Privacy Policy
+          </button>{' '}
+          for how we handle your data.
+        </p>
+
         <div className="account-hero-block">
           <div className="account-meta-info">
             <img
@@ -59,25 +60,37 @@ export default function Account() {
           </div>
         </div>
 
-        {/* ── Dashboard grid ── */}
         <div className="dashboard-split-layout">
-          {/* Left: Minecraft link */}
           <div className="dash-card-box">
             <h3>In-Game Character</h3>
-            <p style={{ fontSize: 14, color: 'var(--text-muted)', lineHeight: 1.6 }}>
-              Connect your Minecraft UUID in your account settings to view
-              game stats and link purchases automatically.
+            <p>
+              Link your Minecraft username so staff can deliver ranks and coins to the correct
+              player. Provide your exact in-game name when opening a Discord purchase ticket.
             </p>
+            <button type="button" className="btn-secondary account-card-btn" onClick={() => navigate('store-info')}>
+              View Store Info
+            </button>
           </div>
 
-          {/* Right: Purchase history */}
           <div className="dash-card-box">
             <h3>Purchase History</h3>
-            <p style={{ fontSize: 14, color: 'var(--text-muted)', lineHeight: 1.6 }}>
-              No recent store packages found. Visit the store to support the
-              SMP!
+            <p>
+              No recent store packages found. Browse ranks or coins, then complete payment through
+              an official Discord ticket.
             </p>
+            <div className="account-card-actions">
+              <button type="button" className="btn-primary account-card-btn" onClick={() => navigate('ranks')}>
+                Browse Ranks
+              </button>
+              <button type="button" className="btn-secondary account-card-btn" onClick={() => navigate('coins')}>
+                Browse Coins
+              </button>
+            </div>
           </div>
+        </div>
+
+        <div className="account-legal-footer">
+          <LegalLinks />
         </div>
       </div>
     </div>

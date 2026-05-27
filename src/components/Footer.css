@@ -72,6 +72,16 @@ footer {
 
 .footer-link:hover { color: var(--accent-cyan); }
 
+.footer-link-inline {
+  display: inline;
+  padding: 0;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 @media (max-width: 768px) {
   .footer-inner-layout { padding: 0 20px; }
 }

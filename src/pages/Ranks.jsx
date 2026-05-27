@@ -1,6 +1,7 @@
 import { RANKS, DISCORD_INVITE_LINK } from '../data';
+import StoreNotice from '../components/StoreNotice';
+import LegalLinks from '../components/LegalLinks';
 import './Ranks.css';
-import './Coins.css';
 
 export default function Ranks() {
   return (
@@ -10,6 +11,9 @@ export default function Ranks() {
           <p className="section-label">Premium Support Tiers</p>
           <h2 className="section-title">Network Ranks</h2>
         </div>
+
+        <StoreNotice />
+
         <div className="rank-matrix">
           {RANKS.map((rank) => (
             <div
@@ -22,7 +26,7 @@ export default function Ranks() {
               <div className="rank-price-tier">
                 <span className="price-currency">$</span>
                 <span className="price-amt">{rank.price}</span>
-                <span className="price-term">/Monthly</span>
+                <span className="price-term">one-time</span>
               </div>
               <ul className="rank-perks-summary">
                 {rank.perks.map((perk) => (
@@ -32,14 +36,20 @@ export default function Ranks() {
                   </li>
                 ))}
               </ul>
-              <button
-                className="btn-store-action"
-                onClick={() => { window.location.href = DISCORD_INVITE_LINK; }}
+              <a
+                href={DISCORD_INVITE_LINK}
+                className="btn-rank-action"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Confirm Purchase via Discord
-              </button>
+              </a>
             </div>
           ))}
+        </div>
+
+        <div className="store-page-footer">
+          <LegalLinks />
         </div>
       </div>
     </div>

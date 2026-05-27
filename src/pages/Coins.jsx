@@ -1,18 +1,21 @@
 import { COIN_PACKS, DISCORD_INVITE_LINK } from '../data';
+import StoreNotice from '../components/StoreNotice';
+import LegalLinks from '../components/LegalLinks';
 import './Coins.css';
 
 export default function Coins() {
-  const handlePurchase = () => {
-    window.location.href = DISCORD_INVITE_LINK;
-  };
-
   return (
     <div className="page-enter modern-store-theme">
       <div className="section-wrap">
         <div className="section-header store-hero">
           <p className="section-label-premium">In-Game Economy Hub</p>
-          <h2 className="section-title-modern">Acquire <span className="text-glow">Mist Coins</span></h2>
+          <h2 className="section-title-modern">
+            Acquire <span className="text-glow">Mist Coins</span>
+          </h2>
         </div>
+
+        <StoreNotice />
+
         <div className="coins-grid-modern">
           {COIN_PACKS.map((pack) => (
             <div
@@ -34,19 +37,26 @@ export default function Coins() {
               </div>
               <div className="value-block">
                 <h3 className="coin-amount-text">
-                  {pack.amount.toLocaleString()} <span className="currency-label">Credits</span>
+                  {pack.amount.toLocaleString()}{' '}
+                  <span className="currency-label">Credits</span>
                 </h3>
                 <div className="price-tag-badge">${pack.price.toFixed(2)}</div>
               </div>
-              <button
+              <a
+                href={DISCORD_INVITE_LINK}
                 className={`btn-store-action ${pack.popular ? 'btn-store-featured' : ''}`}
-                onClick={handlePurchase}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <span>Open Ticket to Pay</span>
                 <i className="fa-solid fa-arrow-right-long" />
-              </button>
+              </a>
             </div>
           ))}
+        </div>
+
+        <div className="store-page-footer">
+          <LegalLinks />
         </div>
       </div>
     </div>

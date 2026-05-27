@@ -1,3 +1,63 @@
+.store-intro-block {
+  margin-bottom: 32px;
+}
+
+.store-legal-links {
+  margin-top: 8px;
+}
+
+.purchase-flow-card {
+  margin-bottom: 56px;
+  padding: 32px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.purchase-steps {
+  margin: 0 0 24px 1.25rem;
+  padding: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.purchase-steps li { margin-bottom: 8px; }
+
+.purchase-steps strong { color: var(--text-main); }
+
+.btn-discord-store {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: #5865f2;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-discord-store:hover {
+  background: #4752c4;
+  transform: translateY(-1px);
+}
+
+.legal-doc-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.legal-doc-sep { color: var(--text-dim); }
+
 .info-layout-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -55,7 +115,7 @@
 
 .faq-item.open-faq { border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.02); }
 .faq-item.open-faq .faq-trigger i { transform: rotate(180deg); color: var(--accent-cyan); }
-.faq-item.open-faq .faq-content { padding-bottom: 20px; max-height: 300px; }
+.faq-item.open-faq .faq-content { padding-bottom: 20px; max-height: 500px; }
 
 /* Policy */
 .policy-block h5 {
@@ -67,6 +127,19 @@
 }
 
 .policy-block p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px; }
+
+.policy-inline-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--accent-cyan);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.policy-inline-link:hover { color: #fff; }
 
 @media (max-width: 900px) {
   .info-layout-grid { grid-template-columns: 1fr; gap: 48px; }

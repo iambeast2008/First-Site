@@ -105,49 +105,46 @@ export const RULES = [
   {
     num: '01',
     title: 'No Exploiting or Cheating',
-    body: 'Utilization of unauthorized client modifications, exploit mechanics, or duplication glitches is strictly prohibited. All violations result in immediate network-level termination without appeal.',
+    body: 'Unauthorized client modifications, exploit mechanics, duplication glitches, and macro/automation abuse are strictly prohibited. Confirmed violations may result in immediate network-level bans without appeal.',
   },
   {
     num: '02',
-    title: 'Respectful Conduct Protocol',
-    body: 'Targeted harassment, slur deployment, or sustained personal attacks directed at any network participant are grounds for a permanent access revocation. PvP trash talk within contextual limits is tolerated.',
+    title: 'Respectful Conduct',
+    body: 'Targeted harassment, hate speech, slurs, and sustained personal attacks against any player or staff member are not tolerated. Contextual PvP trash talk is allowed; threats, doxxing, and discrimination are permanently bannable.',
   },
   {
     num: '03',
-    title: 'Territorial Raiding Parameters',
-    body: 'Offensive base operations are exclusively authorized during designated raid window cycles. Griefing outside of claimed territories and beyond raid windows constitutes a sanctionable violation.',
+    title: 'Raiding & Griefing',
+    body: 'Offensive base raids are permitted only during designated raid windows. Griefing unclaimed areas or bypassing claim protections outside those windows is a sanctionable offense.',
   },
   {
     num: '04',
-    title: 'Economy Integrity Framework',
-    body: 'Real-world item trading, account transfers, or external monetary transactions involving in-game assets are entirely prohibited to maintain competitive balance integrity.',
+    title: 'Economy Integrity',
+    body: 'Real-world trading of in-game items, account selling or sharing, and off-platform deals involving network assets undermine competitive balance and are prohibited. All official purchases must go through our store and Discord ticket process.',
   },
   {
     num: '05',
-    title: 'Content Broadcast Standards',
-    body: 'Streaming and content creation involving network assets is encouraged. Explicit content broadcasts, doxxing, or sharing private participant information remains a permanently bannable offense.',
+    title: 'Content & Streaming',
+    body: 'Streaming and content creation using network gameplay is welcome. Broadcasting explicit content, sharing private player information, or impersonating staff or other players is prohibited.',
+  },
+  {
+    num: '06',
+    title: 'Store & Payment Conduct',
+    body: 'Complete purchases only through official Discord purchase tickets. Chargebacks, payment fraud, false dispute claims, or attempting to obtain ranks or coins without payment may result in permanent bans across the server, website, and Discord.',
+  },
+  {
+    num: '07',
+    title: 'Website & Account Use',
+    body: 'Use of this website and linked accounts (including Clerk sign-in) is subject to our Terms of Service and Privacy Policy. You are responsible for securing your credentials. Abuse of the site, impersonation, or attempts to compromise systems will result in access removal.',
+  },
+  {
+    num: '08',
+    title: 'Staff Authority & Appeals',
+    body: 'Staff decisions regarding rule enforcement, store delivery, and access restrictions are final unless overturned on appeal. Submit appeals only through official Discord support channels with relevant evidence—do not harass staff in public channels.',
   },
 ];
 
-// ================= FAQ =================
-export const FAQS = [
-  {
-    q: 'When will I receive my rank after purchase?',
-    a: 'Network rank activations are processed and dispatched automatically within 60 seconds of confirmed payment authorization. If your rank is not activated within 10 minutes, open a support ticket.',
-  },
-  {
-    q: 'Are all purchases one-time lifetime payments?',
-    a: 'Affirmative. All rank packages and Mist Coin bundles are singular lifetime transactions. There are no recurring subscriptions or hidden renewal charges on this network.',
-  },
-  {
-    q: 'What payment methods are accepted?',
-    a: 'We currently process transactions via Razorpay, which supports UPI, Net Banking, all major Credit/Debit cards, and popular digital wallets.',
-  },
-  {
-    q: 'Can I get a refund after purchasing?',
-    a: 'Due to the instant digital delivery nature of all network assets, all sales are final. Exceptions are made only in cases of provable technical delivery failures. See our full policy below.',
-  },
-];
+// Store FAQs live in ./store.js (import STORE_FAQS from './store')
 
 // ================= SERVER INFO =================
 export const SERVER_IP = 'mistsmp.online';
@@ -170,22 +167,60 @@ export const FEATURES = [
     title: 'Strategic Claim Systems',
     desc: 'Advanced power-grid base claims allow calculated raidable windows, striking a meticulous balance between structural defense security and high-octane raiding.',
   },
+  {
+    icon: 'fa-solid fa-store',
+    title: 'Fair Store & Support',
+    desc: 'Lifetime ranks and Mist Coin packs are sold through official Discord tickets only. Cosmetic and quality-of-life perks—no pay-to-win. See Store Info for policies.',
+  },
+];
+
+export const HOME_QUICK_LINKS = [
+  {
+    icon: 'fa-brands fa-discord',
+    title: 'Discord Community',
+    desc: 'Join for support, purchase tickets, and server announcements.',
+    href: DISCORD_INVITE_LINK,
+    external: true,
+  },
+  {
+    icon: 'fa-solid fa-bag-shopping',
+    title: 'Store Information',
+    desc: 'How to buy, refunds, delivery, and legal policies.',
+    route: 'store-info',
+  },
+  {
+    icon: 'fa-solid fa-user-shield',
+    title: 'Your Account',
+    desc: 'Sign in to manage your profile and link your Minecraft player.',
+    route: 'account',
+  },
+  {
+    icon: 'fa-solid fa-scale-balanced',
+    title: 'Rules & Conduct',
+    desc: 'Server, store, and website rules every player must follow.',
+    route: 'rules',
+  },
 ];
 
 export const JOIN_STEPS = [
   {
     num: '01',
-    title: 'Verify Platform Version',
-    body: 'Launch your Minecraft Java Edition client. Ensure your platform profile is configured to run version 1.20.4 or higher for seamless architectural parity.',
+    title: 'Add the Server',
+    body: `Open Minecraft (Java 1.20.4+ or Bedrock 1.9–26.1) and add a server with host ${SERVER_IP}. Bedrock players use port ${SERVER_PORT}.`,
   },
   {
     num: '02',
-    title: 'Establish Network Node',
-    body: `Navigate to Multiplayer → Add Server within the client interface. Enter ${SERVER_IP} within the server connection field.`,
+    title: 'Read the Rules',
+    body: 'Review our Network Ruleset and Store Info before playing or purchasing. Ignorance of the rules is not an excuse for violations.',
   },
   {
     num: '03',
-    title: 'Authorize & Authenticate',
-    body: 'Connect to the instance. If you have created an online hub account, link your system profile in-game using our structural verification protocol.',
+    title: 'Create a Website Account',
+    body: 'Sign in on this site to access your Account page. Linking your Minecraft username helps staff deliver store purchases to the correct player.',
+  },
+  {
+    num: '04',
+    title: 'Join Discord for Store & Support',
+    body: 'All rank and coin purchases are completed through official Discord purchase tickets. Never pay users who DM you privately.',
   },
 ];

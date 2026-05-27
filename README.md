@@ -48,9 +48,15 @@ npm run build
 
 | Variable | Description |
 |----------|-------------|
-| `VITE_CLERK_PUBLISHABLE_KEY` | Clerk publishable key ([dashboard](https://dashboard.clerk.com)) |
+| `VITE_CLERK_PUBLISHABLE_KEY` | Clerk **publishable** key only ([dashboard](https://dashboard.clerk.com)) |
 
-`REACT_APP_CLERK_PUBLISHABLE_KEY` is also supported for backward compatibility.
+Copy `.env.example` to `.env` for local dev. On Vercel, set the same variable in Project → Environment Variables, then redeploy.
+
+**Security:** Never commit `.env` or put `CLERK_SECRET_KEY` / `sk_*` values in any `VITE_*` variable—they are bundled into the public client. Restrict allowed domains in the [Clerk Dashboard](https://dashboard.clerk.com).
+
+## Deployment (Vercel)
+
+Production builds use `vercel.json` security headers (CSP, `X-Frame-Options`, HSTS, etc.). After changing env vars or headers, trigger a new deploy.
 
 ## Key Features
 

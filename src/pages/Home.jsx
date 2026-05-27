@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { FEATURES, SERVER_IP, SERVER_PORT } from '../data';
+import { FEATURES, HOME_QUICK_LINKS, SERVER_IP, SERVER_PORT } from '../data';
+import LegalLinks from '../components/LegalLinks';
 import './Home.css';
 
 export default function Home() {
@@ -24,13 +25,21 @@ export default function Home() {
     });
   };
 
+  const handleQuickLink = (link) => {
+    if (link.external) {
+      window.open(link.href, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    navigate(link.route);
+  };
+
   return (
     <div className="page-enter luxury-home-canvas">
       <section className="prime-hero-deck">
         <div className="hero-grid-matrix">
           <div className="hero-intel-column">
             <div className="live-status-pill">
-              <span className="pulse-indicator"></span>
+              <span className="pulse-indicator" />
               <span className="pill-text">MIST NETWORK IS ONLINE</span>
             </div>
 
@@ -39,29 +48,35 @@ export default function Home() {
             </h1>
 
             <p className="cyber-brand-tagline">
-              Dive into a cutthroat, high-stakes vanilla+ survival landscape.
-              Navigate localized anomalies, conquer seasonal leaderboards, and engage in tactical base raiding.
+              A competitive vanilla-plus survival server with mist events, player-driven economy,
+              and tactical raiding. Support the network with lifetime ranks and Mist Coins—all
+              purchases go through our official Discord.
             </p>
 
-            <div className="hero-action-dock custom-quad-dock">
+            <div className="hero-action-dock custom-hex-dock">
               <button className="premium-cta-btn-quad primary-glow" onClick={() => navigate('ranks')}>
                 <i className="fa-solid fa-crown" />
-                <span>RANKS</span>
+                <span>Ranks</span>
               </button>
-
               <button className="premium-cta-btn-quad cyan-glow" onClick={() => navigate('coins')}>
                 <i className="fa-solid fa-coins" />
-                <span>COINS</span>
+                <span>Coins</span>
               </button>
-
-              <button className="premium-cta-btn-quad grey-glow" onClick={() => navigate('about')}>
+              <button className="premium-cta-btn-quad grey-glow" onClick={() => navigate('store-info')}>
                 <i className="fa-solid fa-circle-info" />
-                <span>ABOUT</span>
+                <span>Store Info</span>
               </button>
-
+              <button className="premium-cta-btn-quad grey-glow" onClick={() => navigate('about')}>
+                <i className="fa-solid fa-compass" />
+                <span>About</span>
+              </button>
               <button className="premium-cta-btn-quad grey-glow" onClick={() => navigate('rules')}>
                 <i className="fa-solid fa-gavel" />
-                <span>RULES</span>
+                <span>Rules</span>
+              </button>
+              <button className="premium-cta-btn-quad grey-glow" onClick={() => navigate('account')}>
+                <i className="fa-solid fa-user" />
+                <span>Account</span>
               </button>
             </div>
           </div>
@@ -69,7 +84,7 @@ export default function Home() {
           <div className="hero-terminal-column">
             <div className="cyber-terminal-shell">
               <div className="terminal-header-bar">
-                <div className="window-dots"><span></span><span></span><span></span></div>
+                <div className="window-dots"><span /><span /><span /></div>
                 <span className="window-title">connection_hub.sys</span>
               </div>
 
@@ -105,7 +120,7 @@ export default function Home() {
                 <div className="terminal-grid-stats">
                   <div className="stat-terminal-card">
                     <span className="card-mini-label">VERSION</span>
-                    <span className="card-big-value">1.9-26.1</span>
+                    <span className="card-big-value">1.9–26.1</span>
                   </div>
                   <div className="stat-terminal-card">
                     <span className="card-mini-label">CURRENT SEASON</span>
@@ -120,7 +135,7 @@ export default function Home() {
                 <p className="terminal-footer-hint">
                   {copiedHost || copiedPort
                     ? '✓ Field copied successfully!'
-                    : 'Click individual values above to copy instantly.'}
+                    : 'Click values above to copy. Java & Bedrock supported.'}
                 </p>
               </div>
             </div>
@@ -132,26 +147,54 @@ export default function Home() {
         <div className="modern-section-header">
           <p className="micro-accent-title">SYSTEM ARCHITECTURE</p>
           <h2 className="macro-display-title">ENGINEERED FOR CHAOS</h2>
-          <div className="header-bar-line"></div>
+          <div className="header-bar-line" />
         </div>
 
         <div className="luxury-feature-grid">
           {FEATURES.map((feat) => (
             <div key={feat.title} className="luxury-feature-card">
-              <div className="card-glow-overlay"></div>
-
+              <div className="card-glow-overlay" />
               <div className="luxury-icon-container">
                 <i className={feat.icon} />
               </div>
-
               <div className="luxury-card-content">
                 <h3 className="luxury-card-title">{feat.title}</h3>
                 <p className="luxury-card-desc">{feat.desc}</p>
               </div>
-
-              <div className="luxury-card-border-light"></div>
+              <div className="luxury-card-border-light" />
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="home-quick-section">
+        <div className="modern-section-header">
+          <p className="micro-accent-title">COMMUNITY HUB</p>
+          <h2 className="macro-display-title">CONNECT & SUPPORT</h2>
+          <div className="header-bar-line" />
+        </div>
+
+        <div className="home-quick-grid">
+          {HOME_QUICK_LINKS.map((link) => (
+            <button
+              key={link.title}
+              type="button"
+              className="home-quick-card"
+              onClick={() => handleQuickLink(link)}
+            >
+              <i className={link.icon} aria-hidden="true" />
+              <h3>{link.title}</h3>
+              <p>{link.desc}</p>
+            </button>
+          ))}
+        </div>
+
+        <div className="home-legal-strip">
+          <p>
+            MIST SMP is not affiliated with Mojang AB or Microsoft. By using this site you agree to
+            our policies.
+          </p>
+          <LegalLinks />
         </div>
       </section>
     </div>

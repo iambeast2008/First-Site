@@ -61,6 +61,30 @@
   color: #fff;
 }
 
+.dash-card-box p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.account-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.account-card-btn {
+  font-size: 12px;
+  padding: 12px 20px;
+}
+
+.account-legal-footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+}
+
 @media (max-width: 900px) {
   .dashboard-split-layout {
     grid-template-columns: 1fr;

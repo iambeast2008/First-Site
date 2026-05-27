@@ -1,5 +1,8 @@
 import { useState } from 'react';
-import { FAQS } from '../data';
+import { STORE_FAQS, STORE_POLICIES } from '../data/store';
+import { DISCORD_INVITE_LINK } from '../data';
+import { LEGAL_LAST_UPDATED } from '../data/legal';
+import LegalLinks from '../components/LegalLinks';
 import './StoreInfo.css';
 
 function FaqItem({ faq }) {
@@ -26,49 +29,58 @@ export default function StoreInfo() {
           <h2 className="section-title">Store Information</h2>
         </div>
 
+        <p className="page-intro store-intro-block">
+          How to buy, what to expect after payment, and the policies that apply to every purchase.
+          Legal documents last updated {LEGAL_LAST_UPDATED}.
+        </p>
+
+        <div className="purchase-flow-card">
+          <h3 className="info-sub-title">How to Purchase</h3>
+          <ol className="purchase-steps">
+            <li>Browse ranks or coin packs on this site and choose your package.</li>
+            <li>
+              Click <strong>Confirm Purchase via Discord</strong> to join our server.
+            </li>
+            <li>Open a purchase ticket in the designated channel and provide your Minecraft username.</li>
+            <li>Complete payment using the method staff confirms in your ticket only.</li>
+            <li>Receive your rank or coins after payment is verified—usually within a few hours.</li>
+          </ol>
+          <a
+            href={DISCORD_INVITE_LINK}
+            className="btn-discord-store"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fa-brands fa-discord" aria-hidden="true" />
+            Open Discord to Purchase
+          </a>
+        </div>
+
         <div className="info-layout-grid">
-          {/* FAQ */}
           <div>
             <h3 className="info-sub-title">Frequently Asked Questions</h3>
             <div className="faq-accordion">
-              {FAQS.map(faq => (
+              {STORE_FAQS.map(faq => (
                 <FaqItem key={faq.q} faq={faq} />
               ))}
             </div>
           </div>
 
-          {/* Policy */}
           <div className="policy-block">
-            <h3 className="info-sub-title">Policies & Legal</h3>
+            <h3 className="info-sub-title">Policies</h3>
+            {STORE_POLICIES.map(policy => (
+              <div key={policy.id}>
+                <h5>{policy.title}</h5>
+                <p>{policy.body}</p>
+              </div>
+            ))}
 
-            <h5>Refund Policy</h5>
+            <h5>Related Pages</h5>
             <p>
-              All purchases made on this store are considered final and non-refundable due to the
-              instant digital delivery of all network assets and rank activations. Exceptions are
-              evaluated only in documented cases of confirmed technical delivery failure on our end.
-              Please open a support ticket within 48 hours of purchase if you have an issue.
+              Our Terms and Privacy Policy govern account sign-in, site use, and data handling.
+              Server rules apply to all players and purchasers.
             </p>
-
-            <h5>Chargeback Policy</h5>
-            <p>
-              Initiating an unauthorized chargeback or payment dispute will result in an immediate
-              and permanent ban from all MIST SMP network infrastructure, pending resolution with
-              our payment processor.
-            </p>
-
-            <h5>Compliance Statement</h5>
-            <p>
-              All store packages comply with Mojang's Commercial Usage Guidelines. No packages
-              grant pay-to-win advantages that affect core competitive gameplay balance. Purchased
-              ranks provide cosmetic and quality-of-life utilities only.
-            </p>
-
-            <h5>Support</h5>
-            <p>
-              For all purchase-related inquiries and technical support, please join our Discord
-              server and open a ticket in the designated support channel. Response times are
-              generally within 24 hours.
-            </p>
+            <LegalLinks className="store-legal-links" />
           </div>
         </div>
       </div>

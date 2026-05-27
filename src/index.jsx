@@ -5,9 +5,7 @@ import { AppProvider } from './context/AppContext';
 import App from './App';
 import './index.css';
 
-const CLERK_KEY =
-  import.meta.env.VITE_CLERK_PUBLISHABLE_KEY ||
-  import.meta.env.REACT_APP_CLERK_PUBLISHABLE_KEY;
+const CLERK_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 function MissingClerkKey() {
   return (

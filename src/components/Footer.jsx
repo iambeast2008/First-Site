@@ -17,7 +17,11 @@ export default function Footer() {
           <p className="footer-legal-copy">
             MIST SMP is not affiliated with Mojang AB or Microsoft.
             <br />
-            All purchases are final. See Store Info for policy details.
+            All purchases are final. See{' '}
+            <button className="footer-link footer-link-inline" onClick={() => navigate('store-info')}>
+              Store Info
+            </button>{' '}
+            for policy details.
           </p>
         </div>
         <div className="footer-links">
@@ -26,6 +30,8 @@ export default function Footer() {
               {r.replace('-', ' ')}
             </button>
           ))}
+          <button className="footer-link" onClick={() => navigate('privacy')}>privacy</button>
+          <button className="footer-link" onClick={() => navigate('terms')}>terms</button>
         </div>
       </div>
     </footer>

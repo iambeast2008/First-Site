@@ -103,6 +103,12 @@
   border: 1px solid var(--border-color);
   color: var(--text-muted);
   width: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .rank-id-divine .btn-rank-action:hover   { background: #ff0054; color: #fff; border-color: #ff0054; box-shadow: 0 10px 24px rgba(255,0,84,0.2); }

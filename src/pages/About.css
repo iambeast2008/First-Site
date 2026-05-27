@@ -10,8 +10,21 @@
 
 .steps-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 32px;
+}
+
+.about-legal-footer {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+  max-width: 900px;
+}
+
+.about-legal-footer p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
 }
 
 .step-node {

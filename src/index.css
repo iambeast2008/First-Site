@@ -204,6 +204,70 @@ textarea {
   outline-offset: 3px;
 }
 
+/* ── Shared page patterns ───────────────────────────────────────────── */
+.page-intro {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 900px;
+  padding: 20px 24px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.inline-nav-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--accent-cyan);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.inline-nav-link:hover { color: #fff; }
+
+.legal-links-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+}
+
+.legal-links-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legal-links-sep { color: var(--text-dim); }
+
+.page-notice {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  padding: 16px 20px;
+  border-left: 3px solid var(--accent-cyan);
+  background: rgba(0, 245, 212, 0.04);
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 32px;
+  max-width: 900px;
+}
+
+.store-page-notice {
+  max-width: none;
+  margin-bottom: 40px;
+}
+
+.store-page-footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+}
+
 /* ── Responsive ─────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .section-wrap  { padding: 60px 20px; }
