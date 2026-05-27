@@ -291,21 +291,33 @@
 
 .luxury-feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .luxury-feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .luxury-feature-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .luxury-feature-card {
   position: relative;
   background: var(--card-dark);
   border: 1px solid var(--border-subtle);
-  padding: 2.5rem;
+  padding: 1.5rem;
   border-radius: 16px;
   overflow: hidden;
   backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
 }
 
